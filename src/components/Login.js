@@ -80,12 +80,12 @@ const Login = (props) => {
   return (
     !isAuthenticated &&
     !props.loggedInViaInput && (
-      <div className="container" style={{ marginTop: 30 }}>
+      <div className="container" style={{ marginTop: 10 }}>
         <img
           src={ABILogo}
           className="h-6"
           alt="AB InBev Logo"
-          style={{ paddingRight: "10px" }}
+          style={{ paddingRight: "30px" }}
         />
         <img
           src={ACOELogo}
@@ -93,11 +93,11 @@ const Login = (props) => {
           alt="ACOE Logo"
           style={{
             borderLeft: "1px solid #c9c9c9",
-            paddingLeft: "14px",
+            paddingLeft: "60px",
           }}
         />
-        <div className="row" style={{ marginTop: 120 }}>
-          <div className="col-7">
+        <div className="row" style={{ marginTop: 40 }}>
+          <div className="col-6">
             <form className="card">
               <div className="card-body p-4">
                 <div className="text-center mb-6">
@@ -105,7 +105,12 @@ const Login = (props) => {
                 </div>
                 <div className="card-title text-center">
                   <div className="mb-3 row">
-                    <label className="col-sm-2 col-form-label">User Name</label>
+                    <label
+                      className="col-sm-2 col-form-label"
+                      style={{ fontSize: "15px", fontWeight: "bold" }}
+                    >
+                      User Name
+                    </label>
                     <div className="col-sm-10">
                       <input
                         type="text"
@@ -116,7 +121,12 @@ const Login = (props) => {
                     </div>
                   </div>
                   <div className="mb-3 row">
-                    <label className="col-sm-2 col-form-label">Password</label>
+                    <label
+                      className="col-sm-2 col-form-label"
+                      style={{ fontSize: "15px", fontWeight: "bold" }}
+                    >
+                      Password
+                    </label>
                     <div className="col-sm-10">
                       <input
                         type="password"
@@ -138,14 +148,26 @@ const Login = (props) => {
               </div>
             </form>
           </div>
-          <div className="col-5">
+          <div className="col-1">
+            <h3
+              style={{
+                height: "100%",
+                textAlign: "center",
+                padding: "140px 0",
+                color: "gray",
+              }}
+            >
+              OR
+            </h3>
+          </div>
+          <div className="col-5" style={{ top: 70 }}>
             <form className="card">
               <div className="card-body p-4">
                 <div className="text-center mb-6">
                   <h3>SSO Login</h3>
                 </div>
                 <div className="card-title text-center">
-                  <p>
+                  <p style={{ fontSize: "15px" }}>
                     Please use your <strong>AB InBev ID</strong> to login
                   </p>
                 </div>
