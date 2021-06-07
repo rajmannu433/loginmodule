@@ -28,6 +28,7 @@ const Login = (props) => {
   const username = useFormInputs("");
   const password = useFormInputs("");
   const [error, setError] = useState("");
+  const [iserror, setisError] = useState(false);
 
   // useEffect(() => {
   //   console.log(`AUTH LOG = ${isAuthenticated}`);
@@ -61,10 +62,18 @@ const Login = (props) => {
 
     if (!username.value) {
       username_error = "Please enter username";
+      console.log(username_error);
+      setError(username_error);
+      setisError(true);
     }
 
     if (!password.value) {
       password_error = "Please enter password";
+      console.log(password_error);
+      if ({ error } === "") {
+        setError(password_error);
+        setisError(true);
+      }
     }
 
     if (username_error || password_error) {
@@ -104,37 +113,46 @@ const Login = (props) => {
                   <h3>Login</h3>
                 </div>
                 <div className="card-title text-center">
-                  <div className="mb-3 row">
+                  {iserror && (
+                    <div className="alert alert-warning" role="alert">
+                      {error}
+                    </div>
+                  )}
+                  <div className="mb-3">
                     <label
-                      className="col-sm-2 col-form-label"
-                      style={{ fontSize: "15px", fontWeight: "bold" }}
+                      className="form-label"
+                      style={{
+                        fontSize: "15px",
+                        fontWeight: "bold",
+                        textAlign: "left",
+                      }}
                     >
                       User Name
                     </label>
-                    <div className="col-sm-10">
-                      <input
-                        type="text"
-                        onChange={username.onChange}
-                        className="form-control"
-                        id="fresh-User_name"
-                      />
-                    </div>
+                    <input
+                      type="text"
+                      onChange={username.onChange}
+                      className="form-control"
+                      id="fresh-User_name"
+                    />
                   </div>
-                  <div className="mb-3 row">
+                  <div className="mb-3 ">
                     <label
-                      className="col-sm-2 col-form-label"
-                      style={{ fontSize: "15px", fontWeight: "bold" }}
+                      className="form-label"
+                      style={{
+                        fontSize: "15px",
+                        fontWeight: "bold",
+                        textAlign: "left",
+                      }}
                     >
                       Password
                     </label>
-                    <div className="col-sm-10">
-                      <input
-                        type="password"
-                        className="form-control"
-                        id="fresh-password"
-                        onChange={password.onChange}
-                      />
-                    </div>
+                    <input
+                      type="password"
+                      className="form-control"
+                      id="fresh-password"
+                      onChange={password.onChange}
+                    />
                   </div>
                 </div>
                 <div className="form-footer">

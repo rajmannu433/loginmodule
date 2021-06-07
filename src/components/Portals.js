@@ -5,7 +5,7 @@ class Portals extends Component {
   render() {
     return (
       <div className="container">
-        <div className="row port-row">
+        <div className="row port-row" style={{ paddingLeft: "12%" }}>
           <div className="col-sm-6" style={{ marginLeft: 0 }}>
             <div className="card" style={{ width: "18rem" }}>
               <img src={orderPortalImg} className="card-img-top" alt="..." />
@@ -47,7 +47,7 @@ class Portals extends Component {
             </div>
           </div>
         </div>
-        <div className="row port-row">
+        <div className="row port-row" style={{ paddingLeft: "12%" }}>
           <div className="col-sm-6">
             <div className="card" style={{ width: "18rem" }}>
               <img src={orderPortalImg} className="card-img-top" alt="..." />

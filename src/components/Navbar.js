@@ -45,7 +45,7 @@ const Navbar = () => {
             Dummy
           </div>
         </div>
-        {isAuthenticated && (
+        {/* {isAuthenticated && (
           <div>
             <button
               type="button"
@@ -55,7 +55,7 @@ const Navbar = () => {
               Logout
             </button>
           </div>
-        )}
+        )} */}
       </div>
     </nav>
   );

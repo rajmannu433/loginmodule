@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import Logo from "../images/ab inbev.png";
-import { useMsal } from "@azure/msal-react";
+import { useMsal, useIsAuthenticated } from "@azure/msal-react";
 // const { accounts } = useMsal();
 //   const [name, changeName] = useState(accounts[0].name);
 //   const [email, changeEmail] = useState(accounts[0].username);
@@ -8,7 +8,13 @@ const Header = () => {
   // const isAuthenticated = useIsAuthenticated();
   const [name, changeName] = useState("");
   const [email, changeEmail] = useState("");
-  const { accounts } = useMsal();
+  const { accounts, instance } = useMsal();
+  const isAuthenticated = useIsAuthenticated();
+  const handleLogout = () => {
+    instance.logoutRedirect({
+      postLogoutRedirectUri: "/",
+    });
+  };
   useEffect(() => {
     if (accounts.length !== 0) {
       changeName(accounts[0].name);
@@ -17,7 +23,7 @@ const Header = () => {
       changeName("");
       changeEmail("");
     }
-  }, []);
+  }, [accounts]);
 
   return (
     <div className="container">
@@ -39,10 +45,28 @@ const Header = () => {
                 id="user-dp"
               />
             </div>
-            <div className="col-sm-8">
-              <div style={{ fontSize: 10 }}>{name}</div>
+            <div
+              className="col-sm-6 container"
+              style={{
+                marginTop: "-10px",
+                alignContent: "center",
+                width: "5px",
+              }}
+            >
+              <div style={{ fontSize: 10, marginTop: "10px" }}>{name}</div>
               <div style={{ fontSize: 10 }}>{email}</div>
             </div>
+            {isAuthenticated && (
+              <div className="col-sm-3">
+                <button
+                  type="button"
+                  className="btn btn-danger"
+                  onClick={() => handleLogout()}
+                >
+                  Logout
+                </button>
+              </div>
+            )}
           </div>
         </div>
       </div>

@@ -1,7 +1,11 @@
 import React from "react";
 
 const Footer = () => (
-  <footer className="footer fixed-bottom">
+  <footer className="footer">
+    <p style={{ marginTop: -40, textAlign: "left" }}>
+      {" "}
+      © Powered by Digital Solutions COE, GCC
+    </p>
     <div className="container">
       <div className="row align-items-center flex-row-reverse">
         <div className="col-auto ml-lg-auto">

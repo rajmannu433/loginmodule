@@ -33,7 +33,6 @@ const Home = (props) => {
         <Header />
         <Navbar />
         <Portals />
-        <Footer />
       </div>
     )
   );
